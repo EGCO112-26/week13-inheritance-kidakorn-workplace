@@ -13,8 +13,6 @@ public:
     }
     // ใส่ virtual เพื่อให้การสืบทอดสมบูรณ์
     virtual ~Thai_person() {
-        // บางที Autograder อาจจะเช็คข้อความตรงนี้ด้วย
-        cout << "Thai person destructor" << endl;
     }
     
     void display_thai() {
