@@ -8,16 +8,21 @@ LL::LL(){
 }
 
 LL::~LL(){
-          //clear all nodes
+          NODE* t=hol;
+          NODE* temp;
+          while(t != NULL){
+                 temp = t->move_next();
+                 delete t;
+                 t = temp;
+          }
 }
 
 void LL::show_all(){
      NODE* t=hol;
      int i;
      for(i=0;i<size;i++){
-                 /**
-                 complete this part
-                 */
+                 t->show_node();
+                 t = t->move_next();
      }
 }
 void LL::add_node(NODE *&A){
