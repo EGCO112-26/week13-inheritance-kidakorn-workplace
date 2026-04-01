@@ -5,6 +5,7 @@ using namespace std;
 NODE::NODE(int x){
       data=x;
       next=NULL;
+      cout<<"adding "<< x<<endl;
 }
   NODE:: ~NODE(){
       cout<<"Node "<<data<<" is being deleted"<<endl;

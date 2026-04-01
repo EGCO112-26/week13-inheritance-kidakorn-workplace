@@ -14,6 +14,7 @@ public:
 };
 
 MU_person::MU_person(long x, string n) : Thai_person(n), NODE(x) {
+    cout << "MU person constructor " << x << endl;
 }
 
 MU_person::~MU_person() {
