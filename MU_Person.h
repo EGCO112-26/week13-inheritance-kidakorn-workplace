@@ -6,24 +6,30 @@
 #include "NODE.h"
 using namespace std;
 
-// 1. MU_person inherit มาจาก Thai person และ NODE
 class MU_person : public Thai_person, public NODE {
 public:
     MU_person(long = 112, string = "Prapaporn");
     virtual void display_person();
     ~MU_person();
+    
+    // เผื่อไว้กรณีเรียกผ่าน MU_person ตรงๆ
+    virtual void show_node() {
+        display_person();
+    }
 };
 
-// ส่งค่าไปให้ Constructor ของคลาสแม่ทั้งสอง (ใช้ x ปริ้นท์แทน เพราะ data เป็น private)
 MU_person::MU_person(long x, string n) : Thai_person(n), NODE(x) {
     cout << "MU person constructor " << x << endl;
 }
 
-MU_person::~MU_person() {}
+// เอาข้อความกลับมาตามโครงร่างเดิม
+MU_person::~MU_person() {
+    cout << "Destructor id=" << data << endl;
+}
 
-// 5. ให้ display_person สามารถ แสดงค่าข้อมูลทุกอย่างได้ด้วย
 void MU_person::display_person() {
-    display_thai();        // แสดงชื่อจาก Thai_person
-    NODE::show_node();     // แสดง ID จาก NODE
+    cout << "show info of person" << endl;
+    cout << "id:" << data << endl;
+    display_thai(); // จะไปเรียก name จาก Thai_person
 }
 #endif
